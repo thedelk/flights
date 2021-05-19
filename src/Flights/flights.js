@@ -196,7 +196,8 @@ function FlightsCard() {
                   name={"budget_" + index}
                   InputProps={{
                     startAdornment: (
-                      <InputAdornment position="start">$</InputAdornment>
+                      // Challenge 1: Missing "flight.budget" property in input
+                      <InputAdornment position="start">${flight.budget}</InputAdornment>
                     ),
                   }}
                   fullWidth
