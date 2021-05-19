@@ -180,7 +180,11 @@ function FlightsCard() {
               <Grid item xs className={classes.flightPicker}>
                 <KeyboardDatePicker
                   required
-                  disabled={moment(flight.endDate).isBefore(moment())}
+                  disabled={moment(flight.endDate).isBefore(moment(), "day")}
+                  // Bonus: Disallow selecting a date before the start date
+                  // Also works on flights whose end dates haven't happened yet
+                  minDate={flight.startDate}
+                  minDateMessage="Date cannot be before Flight Start date"
                   name={"endDate_" + index}
                   disableToolbar
                   variant="inline"
