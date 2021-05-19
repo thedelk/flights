@@ -160,7 +160,10 @@ function FlightsCard() {
               <Grid item xs className={classes.flightPicker}>
                 <KeyboardDatePicker
                   required
-                  disabled={moment(flight.startDate).isBefore(moment())}
+                  // Challenge 2: Add "day" argument to override Moment's default check for milliseconds,
+                  // and utilize component's "disablePast" property to disallow selecting dates before today
+                  disabled={moment(flight.startDate).isBefore(moment(), "day")}
+                  disablePast={moment(flight.startDate).isSameOrAfter(moment(), "day")}
                   name={"startDate_" + index}
                   disableToolbar
                   variant="inline"
