@@ -1,0 +1,3 @@
+export const UPDATE_FLIGHT = "UPDATE_FLIGHT";
+export const REMOVE_FLIGHT = "REMOVE_FLIGHT";
+export const CREATE_FLIGHT = "CREATE_FLIGHT";
