@@ -66,6 +66,7 @@ function FlightsCard() {
 
   const handleRemoveFlight = (index) => {
     /* CODING CHALLENGE: Dispatch removeFlight action */
+    dispatch(removeFlight(index));
   };
 
   const handleCreateFlight = () => {

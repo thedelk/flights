@@ -44,7 +44,13 @@ export default function flightReducer(state = initialState, action) {
     case REMOVE_FLIGHT: {
       console.log("In reducer removing flight from state! :D");
       /* CODING CHALLENGE: Implement the logic necessary to remove the selected flight from reducer state */
-      return state;
+      // Destructure "action.paylaod" to get the passed "flightIndex"
+      const { flightIndex } = action.payload;
+
+      // Challenge 4: Return a copy of state without the flight that was passed by index
+      let newFlights = state.filter((_, index) => flightIndex !== index);
+
+      return newFlights;
     }
 
     case CREATE_FLIGHT: {

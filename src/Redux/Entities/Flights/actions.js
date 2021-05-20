@@ -14,6 +14,10 @@ export const updateFlight = (value, flightIndex, property) => {
 export const removeFlight = (flightIndex) => {
   return {
    /* CODING CHALLENGE: Write the logic to map the action to the reducer function and provide payload data*/
+   type: REMOVE_FLIGHT,
+   payload: {
+     flightIndex
+   }
   };
 };
 
