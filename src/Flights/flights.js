@@ -242,6 +242,8 @@ function FlightsCard() {
                 <Grid item>
                   <IconButton
                     color="secondary"
+                    // Challenge 5: Disallow flight removal if "flight.endDate" is in the past
+                    disabled={moment(flight.endDate).isBefore(moment(), "day")}
                     onClick={() => handleRemoveFlight(index)}
                   >
                     <Remove></Remove>
@@ -285,7 +287,7 @@ function FlightsCard() {
           </Grid>
           <Grid item xs></Grid>
           {
-            //To match styling of flight rows
+            // To match styling of flight rows
             flights.length > 1 && <Grid item style={{ width: "48px" }}></Grid>
           }
         </Grid>
