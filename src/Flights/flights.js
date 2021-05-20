@@ -203,10 +203,12 @@ function FlightsCard() {
                   name={"budget_" + index}
                   InputProps={{
                     startAdornment: (
-                      // Challenge 1: Missing "flight.budget" property in input
-                      <InputAdornment position="start">${flight.budget}</InputAdornment>
-                    ),
-                  }}
+                      <InputAdornment position="start">$</InputAdornment>
+                      ),
+                    }}
+                  // Challenge 1: Missing "flight.budget" property in input
+                  value={flight.budget}
+                  onChange={(e) => handleInputChange(e, index, "budget")}
                   fullWidth
                 />
               </Grid>
