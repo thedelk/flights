@@ -88,7 +88,9 @@ function FlightsCard() {
 
   const handleGetTotal = (property) => {
     return flights.reduce((total, flight) => {
-      return !!flight[property] ? total + flight[property] : total + 0;
+      // Challenge 3: Convert "flight[property]" to a Number data type to prevent
+      // incorrectly treating as a string and concatenating values instead of adding them
+      return !!flight[property] ? total + Number(flight[property]) : total + 0;
     }, 0);
   };
 
