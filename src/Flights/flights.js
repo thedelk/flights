@@ -128,10 +128,12 @@ function FlightsCard() {
             </span>
           </Grid>
           <Grid item>
-            <Tooltip title="">
-              <Button color="primary" onClick={handleCreateFlight}>
-                <Add />
-                CREATE A FLIGHT
+            <Tooltip title="Create a flight">
+              <Button color="primary" startIcon={<Add />} onClick={handleCreateFlight}>
+                {/* Vertically align label with icon */}
+                <span style={{paddingTop: "3px"}}>
+                  CREATE A FLIGHT
+                </span>
               </Button>
             </Tooltip>
           </Grid>
