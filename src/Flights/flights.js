@@ -185,7 +185,10 @@ function FlightsCard() {
                   required
                   disabled={moment(flight.endDate).isBefore(moment(), "day")}
                   // Bonus: Disallow selecting a date before the start date
-                  // Also works on flights whose end dates haven't happened yet
+                  // Also works on flights whose end dates are in the future
+                  // Note: Likely needs additional logic - right now, if a flight's
+                  // "startDate" is in the past and "endDate" is in the future, selecting
+                  // an "endDate" before today disables the field, preventing further changes
                   minDate={flight.startDate}
                   minDateMessage="Date cannot be before Flight Start date"
                   name={"endDate_" + index}
@@ -209,10 +212,13 @@ function FlightsCard() {
                       <InputAdornment position="start">$</InputAdornment>
                       ),
                     }}
-                  // Challenge 1: Missing "flight.budget" property in input
+                  fullWidth
+                  // Challenge 1: Missing "flight.budget" property in input;
+                  // set via "value" property and related "onChange" handler
                   value={flight.budget}
                   onChange={(e) => handleInputChange(e, index, "budget")}
-                  fullWidth
+                  // Accept only numeric values
+                  type="Number"
                 />
               </Grid>
               <Grid container direction="column" item xs>

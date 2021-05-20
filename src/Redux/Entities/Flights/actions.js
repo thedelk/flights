@@ -17,7 +17,7 @@ export const removeFlight = (flightIndex) => {
    type: REMOVE_FLIGHT,
    payload: {
      flightIndex
-   }
+   },
   };
 };
 
